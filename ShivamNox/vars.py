@@ -32,9 +32,9 @@ class Var(object):
     FQDN = str(getenv('FQDN', '0.0.0.0:3000')) if not ON_HEROKU or getenv('FQDN', '0.0.0.0:3000') else APP_NAME+'.herokuapp.com'
     HAS_SSL=bool(getenv('HAS_SSL',False))
     if HAS_SSL:
-        URL = "http://hivajoy.fwh.is/".format(FQDN)
+        URL = "/".format(FQDN)
     else:
-        URL = "http://hivajoy.fwh.is/".format(FQDN)
+        URL = "/".format(FQDN)
     DATABASE_URL = str(getenv('DATABASE_URL', 'mongodb+srv://hivajoy:vFzCknGyfyi38a9n@cluster0.6tny5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'))
     UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', 'innoshiv'))
     BANNED_CHANNELS = list(set(int(x) for x in str(getenv("BANNED_CHANNELS", "-1001362659779")).split())) 
